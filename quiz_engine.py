@@ -1,8 +1,11 @@
 import os
 import time
-from fuzzywuzzy import fuzz
 import sys
 import clearterm
+from fuzzywuzzy import fuzz
+os.system("pip install fuzzywuzzy > nul")
+os.system("pip install python-Levenshtein > nul")
+clearterm.clear_terminal()
 
 local_qnum = 1
 qadata = {}
@@ -21,7 +24,7 @@ def display_help():
                 helpuse = input()
             except KeyboardInterrupt:
                 print("Quiz Stopped.")
-                exit()
+                sys.exit()
             if helpuse == '1':
                 print('The arguments should be structured:\nque1 ans1 que2 ans2, etc.')
                 print("And also, instead of space put a ' so this s'p'a'c'e will look like s p a c e \nOr you can put \"s p a c e\" and it will also look like: s p a c e")
@@ -34,14 +37,14 @@ def display_help():
             elif helpuse == '3':
                 print('Exiting...')
                 time.sleep(2)
-                exit()
+                sys.exit()
             else:
                 print('You did not type 1, 2, or 3')
                 input('Press Enter to Continue...')
                 clearterm.clear_terminal()
     except Exception as ezep:
         print(f'Oops There was an error. Error code: {ezep}')
-        exit()
+        sys.exit()
 
 try:
     if len(sys.argv) >= 2 and sys.argv[1].lower() == "help":
@@ -55,7 +58,7 @@ try:
         if ValueError:
             print("You did not provide a sufficient number of arguments. It should be structured as 'q1 a1 q2 a2, etc.'")
             input('Press Enter to Continue...')
-            exit()
+            sys.exit()
 
     for i in range(1, len(sys.argv), 2):
         que_key = 'q' + str(local_qnum)
@@ -91,7 +94,6 @@ try:
         local_qnum += 1
     print(f'The Quiz is Over, Have a Nice day!! \n Your score is {score}')
     input('Press Enter to Exit...')
-    exit()
 
 except KeyboardInterrupt:
     print('\nQuiz Stopped.')
