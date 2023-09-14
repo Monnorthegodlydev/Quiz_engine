@@ -15,6 +15,9 @@ on:
 permissions:
   contents: read
 
+env:
+  MY_ENVIRONMENT: pre-realese  # Define your environment name here
+
 jobs:
   deploy:
 
@@ -35,5 +38,5 @@ jobs:
     - name: Publish package
       uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
       with:
-        user: __token__
-        password: ${{ secrets.PYPI_API_TOKEN }}
+        user: github - quiz_engine
+        password: ${{ secrets.pypi-AgEIcHlwaS5vcmcCJDQxN2ZkZjU1LWY1NjgtNDhmZS05Mjc0LWIyN2MxYjc2NmI1NgACKlszLCIyMzRlN2M2YS1hNjgyLTQ2NjktYjdhOS1hYzBlNmMzMjRmNDkiXQAABiBG-alSANe-EEk4-7l2TCorDf3fqx-80Q7hD1E3CZCLGg }}
